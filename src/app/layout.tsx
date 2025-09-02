@@ -34,22 +34,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-50">
-          <header className="bg-white shadow-sm border-b">
-            <div className="container mx-auto px-4 py-6">
-              <h1 className="text-3xl font-bold text-gray-900">
+        <div className="min-h-screen bg-slate-50">
+          <header className="bg-white shadow-sm border-b border-slate-200">
+            <div className="max-w-7xl mx-auto px-4 py-6">
+              <h1 className="text-3xl font-bold text-slate-900">
                 Product Data App
               </h1>
-              <p className="text-gray-600 mt-2">
+              <p className="text-slate-600 mt-2">
                 Discover amazing products with advanced search and filtering
               </p>
             </div>
           </header>
 
-          <main className="container mx-auto px-4 py-8">{children}</main>
+          <main>{children}</main>
 
-          <footer className="bg-white border-t mt-12">
-            <div className="container mx-auto px-4 py-6 text-center text-gray-600">
+          <footer className="bg-white border-t border-slate-200 mt-12">
+            <div className="max-w-7xl mx-auto px-4 py-6 text-center text-slate-600">
               <p>&copy; 2024 Product Data App. Built with Next.js and React.</p>
             </div>
           </footer>

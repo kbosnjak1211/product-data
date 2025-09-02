@@ -17,26 +17,34 @@ export default function Home() {
   } = useProducts();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Search */}
-      <div className="mb-6">
-        <SearchBar onSearch={(search) => updateFilters({ search })} />
-        <p className="mt-2 text-sm text-gray-600">
+    <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* Search Section - Fixed Size */}
+      <div className="mb-8">
+        <div className="max-w-md">
+          {" "}
+          {/* This limits the search bar width */}
+          <SearchBar onSearch={(search) => updateFilters({ search })} />
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
           {total > 0
             ? `Showing ${products.length} of ${total} products`
-            : "Loading..."}
+            : loading
+            ? "Loading products..."
+            : "No products found"}
         </p>
       </div>
 
-      {/* Main Layout */}
-      <div className="flex flex-col lg:flex-row gap-6">
-        {/* Sidebar */}
-        <div className="w-full lg:w-64 flex-shrink-0">
-          <FilterPanel filters={filters} onFiltersChange={updateFilters} />
+      {/* Main Content */}
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Sidebar - Fixed Width */}
+        <div className="w-full lg:w-72 flex-shrink-0">
+          <div className="sticky top-6">
+            <FilterPanel filters={filters} onFiltersChange={updateFilters} />
+          </div>
         </div>
 
-        {/* Products */}
-        <div className="flex-1">
+        {/* Products Grid */}
+        <div className="flex-1 min-w-0">
           <ProductList
             products={products}
             loading={loading}
